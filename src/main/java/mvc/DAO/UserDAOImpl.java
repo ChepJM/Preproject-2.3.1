@@ -25,12 +25,12 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public void updateUserById(int id) {
-
+    public void updateUser(User user) {
+        entityManager.merge(user);
     }
 
     @Override
-    public void deleteuserById(int id) {
+    public void deleteUserById(int id) {
         User user = entityManager.find(User.class, id);
         entityManager.remove(user);
     }
